@@ -2,6 +2,7 @@ import { watch } from 'node:fs'
 import { stat } from 'node:fs/promises'
 
 import { IS_DEV } from '~/lib/constants'
+import type { OrPromise } from '~/features/helpers.types'
 
 /**
  * Caches a function for the length of the server process.
@@ -12,7 +13,7 @@ const cache_fullProcess_withDevCacheBust = <Args extends unknown[], Output>(
   /**
    * The function whose results to cache
    */
-  fn: (...args: Args) => Promise<Output>,
+  fn: (...args: Args) => OrPromise<Output>,
   /**
    * The directory to watch for edits
    */

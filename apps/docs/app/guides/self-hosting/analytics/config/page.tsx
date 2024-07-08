@@ -1,6 +1,7 @@
 import Param from '~/components/Params'
 import { genGuideMeta } from '~/features/docs/GuidesMdx.utils'
-import { GuideTemplate, MDXRemoteGuides, newEditLink } from '~/features/docs/GuidesMdx.template'
+import { GuideTemplate, newEditLink } from '~/features/docs/GuidesMdx.template'
+import { MDXRemoteBase } from '~/features/docs/MdxBase'
 import { getAnalyticsConfigV0 } from '~/lib/mdx/getConfig'
 
 const meta = {
@@ -24,7 +25,7 @@ const AnalyticsConfigPage = async () => {
         'supabase/supabase/blob/master/apps/docs/pages/guides/self-hosting/analytics/config.tsx'
       )}
     >
-      <MDXRemoteGuides source={descriptionMdx} />
+      <MDXRemoteBase source={descriptionMdx} />
 
       <div>
         {spec.info.tags.map((tag: ReturnType<typeof getAnalyticsConfigV0>['info']['tags']) => {
